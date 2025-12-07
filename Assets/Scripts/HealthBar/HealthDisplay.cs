@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private Slider _slider;
     [SerializeField] private float _smoothSpeed = 5f;
-    //[SerializeField] private Transform _target;
 
     private float _targetValue = 1f;
+    private Coroutine _smoothCoroutine;
 
     private void OnEnable()
     {
@@ -25,19 +26,24 @@ public class HealthDisplay : MonoBehaviour
         _slider.value = 1f;
     }
 
-    private void Update()
-    {
-        if (_slider.value != _targetValue)
-        {
-            _slider.value = Mathf.MoveTowards(_slider.value, _targetValue, _smoothSpeed * Time.deltaTime);
-        }
-
-        //transform.position = _target.position;
-        transform.rotation = Quaternion.identity;
-    }
-
     private void OnHealthChanged(float value)
     {
         _targetValue = value;
+
+        if (_smoothCoroutine != null)
+        {
+            StopCoroutine(_smoothCoroutine);
+        }
+
+        _smoothCoroutine = StartCoroutine(SmoothUpdateSlider());
+    }
+
+    private IEnumerator SmoothUpdateSlider()
+    {
+        while (_slider.value != _targetValue)
+        {
+            _slider.value = Mathf.MoveTowards(_slider.value,_targetValue,_smoothSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 }

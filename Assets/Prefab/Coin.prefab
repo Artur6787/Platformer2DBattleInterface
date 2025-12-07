@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 3517094319591584540}
   - component: {fileID: -8405771201483302134}
   - component: {fileID: -8764508540928121903}
+  - component: {fileID: -4112216568518986975}
+  - component: {fileID: -4358232195100547363}
+  - component: {fileID: 7563294543733692633}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -133,3 +136,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ebcb940cf033574ea3457250e8ce93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4112216568518986975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882156038779370599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6921d472cd57c4b40b3a1b2646f27dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _visionDistance: 5
+  _searchInterval: 0.5
+  _playerInvincibility: {fileID: 0}
+--- !u!114 &-4358232195100547363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882156038779370599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610dc37e599aa704f8db26aee0003cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7563294543733692633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882156038779370599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a377d80c43f9a4cbe9271f71f6c28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 5
+  _stopDistance: 3
+  _chaser: {fileID: -4358232195100547363}

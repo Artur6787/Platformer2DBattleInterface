@@ -11,7 +11,7 @@ public class Collector : MonoBehaviour
                 case HealthPickup healthPickup:
                     if (TryGetComponent<Health>(out var health))
                     {
-                        health.Heal(healthPickup.HealAmount);
+                        health.ChangeAmount(healthPickup.HealAmount);
                         healthPickup.HandleCollected();
                     }
                     break;

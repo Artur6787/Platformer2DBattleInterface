@@ -36,17 +36,20 @@ public class Vision : MonoBehaviour
     {
         if (_target == null)
             return false;
+
         if (_playerInvincibility != null && _playerInvincibility.IsProtected())
             return false;
 
-        float directionSign = Mathf.Sign(_target.position.x - transform.position.x);
-        Vector2 direction = new (directionSign, 0);
-        float distanceSqr = ((Vector2)_target.position - (Vector2)transform.position).sqrMagnitude;
-        float visionDistanceSqr = _visionDistance * _visionDistance;
+        Vector2 origin = transform.position;
+        Vector2 toTarget = (Vector2)_target.position - origin;
+        float distanceSqr = toTarget.magnitude;
 
-        if (distanceSqr > visionDistanceSqr)
+        if (distanceSqr > _visionDistance)
+        {
             return false;
+        }
 
+        Vector2 direction = toTarget.normalized;
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, _visionDistance);
 
         foreach (RaycastHit2D hit in hits)

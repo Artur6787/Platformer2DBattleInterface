@@ -18,29 +18,7 @@ public class Health : MonoBehaviour
         _currentHealthPoints = _maxHealthPoints;
     }
 
-    public void TakeDamage(float damage)
-    {
-        if (damage < 0f)
-        {
-            Debug.LogWarning("ѕопытка нанести отрицательный урон!");
-            return;
-        }
-
-        ApplyHealing(-damage);
-    }
-
-    public void Heal(float healAmount)
-    {
-        if (healAmount < 0f)
-        {
-            Debug.LogWarning("ѕопытка вылечить отрицательное количество здоровь€!");
-            return;
-        }
-
-        ApplyHealing(healAmount);
-    }
-
-    public void ApplyHealing(float amount)
+    public void ChangeAmount(float amount)
     {
         _currentHealthPoints = Mathf.Clamp(_currentHealthPoints + amount, 0f, _maxHealthPoints);
         ValueChanged?.Invoke(_currentHealthPoints / _maxHealthPoints);

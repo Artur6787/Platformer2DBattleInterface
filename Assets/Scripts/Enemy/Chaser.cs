@@ -17,6 +17,11 @@ public class Chaser : MonoBehaviour
 
     public Vector2 GetTargetPosition()
     {
-        return _vision != null ? _vision.GetTargetPosition() : (Vector2)transform.position;
+        Vector2 position = transform.position;
+
+        if (_vision != null)
+            position = _vision.GetTargetPosition();
+
+        return position;
     }
 }

@@ -17,7 +17,7 @@ public class DamageReceiver : MonoBehaviour
         if (_invincibility != null && _invincibility.IsProtected())
             return;
 
-        _health.TakeDamage(damage);
+        _health.ChangeAmount(-damage);
 
         if (_invincibility != null)
             _invincibility.MakeProtected();

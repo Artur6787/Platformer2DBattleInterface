@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
+    [SerializeField] private Transform _sprite;
+
     private float _rightAngle = 0f;
     private float _leftAngle = 180f;
     private Quaternion _rightRotation;
@@ -17,11 +19,11 @@ public class Rotator : MonoBehaviour
     {
         if (direction.x > 0)
         {
-            transform.rotation = _rightRotation;
+            _sprite.rotation = _rightRotation;
         }
         else if (direction.x < 0)
         {
-            transform.rotation = _leftRotation;
+            _sprite.rotation = _leftRotation;
         }
     }
 }

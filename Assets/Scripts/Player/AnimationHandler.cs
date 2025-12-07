@@ -17,6 +17,8 @@ public class AnimationHandler : MonoBehaviour
 
     public void UpdateJumpState(bool isJumping)
     {
+        if (_animator == null) return;
+
         _animator.SetBool(s_isJumpingHash, isJumping);
     }
 

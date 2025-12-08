@@ -23,13 +23,13 @@ public class Player : MonoBehaviour
         _health.Died -= OnDeath;
     }
 
-    private void OnDeath()
-    {
-        Debug.Log("Игрок погиб!");
-    }
-
     public void TakeDamage(int damage)
     {
         _damageReceiver.TakeDamage(damage);
+    }
+
+    private void OnDeath()
+    {
+        Debug.Log("Игрок погиб!");
     }
 }

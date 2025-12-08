@@ -6,8 +6,9 @@ public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private Slider _slider;
-    [SerializeField] private float _smoothSpeed = 5f;
+    [SerializeField] private float _smoothSpeed = 0.5f;
 
+    private float _startValue;
     private float _targetValue = 1f;
     private Coroutine _smoothCoroutine;
 
@@ -28,6 +29,7 @@ public class HealthDisplay : MonoBehaviour
 
     private void OnHealthChanged(float value)
     {
+        _startValue = _slider.value;
         _targetValue = value;
 
         if (_smoothCoroutine != null)
@@ -40,10 +42,17 @@ public class HealthDisplay : MonoBehaviour
 
     private IEnumerator SmoothUpdateSlider()
     {
-        while (_slider.value != _targetValue)
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _smoothSpeed)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value,_targetValue,_smoothSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / _smoothSpeed;
+            _slider.value = Mathf.Lerp(_startValue, _targetValue, t);
             yield return null;
         }
+
+        _slider.value = _targetValue;
+        _smoothCoroutine = null;
     }
 }

@@ -9,9 +9,10 @@ public class Collector : MonoBehaviour
             switch (collectible)
             {
                 case HealthPickup healthPickup:
+
                     if (TryGetComponent<Health>(out var health))
                     {
-                        health.ChangeAmount(healthPickup.HealAmount);
+                        health.Heal(healthPickup.HealAmount);
                         healthPickup.HandleCollected();
                     }
                     break;

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Chaser))]
 public class MagnetCoin : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 5f;      // скорость полЄта монеты к игроку
+    [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private Chaser _chaser;
 
     private Transform _playerTarget;
@@ -53,7 +53,6 @@ public class MagnetCoin : MonoBehaviour
 
     private void TryCachePlayer()
     {
-        // »щем любой объект в сцене, у которого есть компонент Player
         Player player = FindAnyObjectByType<Player>();
 
         if (player != null)

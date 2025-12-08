@@ -17,7 +17,13 @@ public class DamageReceiver : MonoBehaviour
         if (_invincibility != null && _invincibility.IsProtected())
             return;
 
-        _health.ChangeAmount(-damage);
+        if (damage < 0)
+        {
+            Debug.LogWarning($"Недопустимое значение урона: {damage}. Урон должен быть неотрицательным.", this);
+            return;
+        }
+
+        _health.TakeDamage(damage);
 
         if (_invincibility != null)
             _invincibility.MakeProtected();

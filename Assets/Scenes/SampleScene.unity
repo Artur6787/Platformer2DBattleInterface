@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 411950021}
     - target: {fileID: 7234926747281081493, guid: e0cc7ef6ae20c37488192273961f9630, type: 3}
       propertyPath: _smoothSpeed
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8413233853485162200, guid: e0cc7ef6ae20c37488192273961f9630, type: 3}
       propertyPath: m_Pivot.x
@@ -1417,7 +1417,7 @@ PrefabInstance:
       objectReference: {fileID: 59673502}
     - target: {fileID: 5340335066187205741, guid: 1bf1324fc970301429cf8516fff4479f, type: 3}
       propertyPath: _smoothSpeed
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5356880336088188070, guid: 1bf1324fc970301429cf8516fff4479f, type: 3}
       propertyPath: _sprite
